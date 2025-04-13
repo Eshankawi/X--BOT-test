@@ -1,0 +1,68 @@
+{
+  "name": "CypherX",
+  "version": "latest",
+  "description": "CypherX, the best WhatsApp Bot",
+  "logo": "https://i.ibb.co/Q4QCHYd/copilot-image-1739572393172.jpg",
+  "keywords": ["whatsapp", "bot", "md"],
+  "repository": "https://github.com/Dark-Xploit/CypherX",
+  "stack": "container",
+  "addons": [
+    {
+      "plan": "heroku-postgresql"
+    }
+  ],
+  "scripts": {
+    "start": "node index.js"
+  },
+"env": {
+  "SESSION_ID": {
+    "description": "The session string used to authenticate the bot with WhatsApp. Must begin with 'XPLOADER-BOT:~' or 'CYPHER-X:~'.",
+    "value": "",
+    "required": false
+  },
+  "BOT_NAME": {
+    "description": "The display name of the bot as it will appear in interactions.",
+    "value": "CypherX",
+    "required": false
+  },
+  "OWNER_NUMBER": {
+    "description": "The primary owner's WhatsApp number, including country code (e.g., 2547XXXXXXXX).",
+    "value": "",
+    "required": true
+  },
+  "OWNER_NAME": {
+    "description": "The name of the primary owner of the bot.",
+    "value": "",
+    "required": true
+  },
+  "HEROKU_API_KEY": {
+    "description": "Heroku API key used for accessing and managing your Heroku app programmatically.",
+    "value": "",
+    "required": false
+  },
+  "HEROKU_APP_NAME": {
+    "description": "The exact name of your Heroku application that you've just entered above.",
+    "value": "",
+    "required": false
+  },
+  "TIMEZONE": {
+    "description": "Timezone for the bot's internal clock (e.g., Africa/Nairobi). Used for time-based functions. Don't change or Google if you don't know!",
+    "value": "Africa/Nairobi",
+    "required": false
+  }
+},
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "https://github.com/DuckyTeam/heroku-buildpack-imagemagick.git"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    },
+    {
+      "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"
+    }
+  ]
+}
