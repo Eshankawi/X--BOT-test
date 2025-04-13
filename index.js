@@ -1,21 +1,9 @@
-const { Client, logger } = require('./lib/client')
-const { DATABASE, VERSION } = require('./config')
-const { stopInstance } = require('./lib/pm2')
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
 
-const start = async () => {
-  logger.info(`levanter ${VERSION}`)
-  try {
-    await DATABASE.authenticate({ retry: { max: 3 } })
-  } catch (error) {
-    const databaseUrl = process.env.DATABASE_URL
-    logger.error({ msg: 'Unable to connect to the database', error: error.message, databaseUrl })
-    return stopInstance()
-  }
-  try {
-    const bot = new Client()
-    await bot.connect()
-  } catch (error) {
-    logger.error(error)
-  }
-}
-start()
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
